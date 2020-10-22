@@ -5,7 +5,7 @@ import java.awt.event.WindowListener;
 public class Window extends Frame implements WindowListener {
 	
 	public Window() {
-		setTitle("Metrik v1.0");
+		setTitle("Metrik v1.0.1");
         setSize(500,300);
         setVisible(true);
         addWindowListener(this);

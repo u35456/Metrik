@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 public class DrawObject extends Canvas implements MouseListener {
 	
@@ -28,10 +29,10 @@ public class DrawObject extends Canvas implements MouseListener {
 		}
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setStroke(new BasicStroke(2.5F));
-		Ellipse2D ellipse = new Ellipse2D.Float(
+		Rectangle2D rect = new Rectangle2D.Float(
 							posX-25, posY-25,
 							50, 50);
-		g2d.draw(ellipse);
+		g2d.draw(rect);
 	}
 	
 	@Override
