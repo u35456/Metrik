@@ -8,7 +8,7 @@ public class Window extends Frame implements WindowListener {
 	public static DrawObject drawObject = new DrawObject();
 	
 	public Window() {
-		setTitle("Metrik v1.1.0");
+		setTitle("Metrik v1.1.1");
         setSize(500,300);
         setVisible(true);
         addWindowListener(this);

@@ -35,7 +35,7 @@ public class DrawObject extends Canvas implements MouseListener {
 							50, 50);
 		g2d.draw(ellipse);
 		
-		//g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
+		g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
 	}
 	
 	@Override
