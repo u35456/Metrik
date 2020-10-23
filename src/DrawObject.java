@@ -49,6 +49,8 @@ public class DrawObject extends Canvas implements MouseListener {
 			g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
 			distance = Math.sqrt(Math.pow(oldX - posX, 2) + Math.pow(oldY - posY, 2));
 			g2d.drawString("d = " + distance, (posX + oldX) / 2, (posY + oldY)/2);
+			
+			g2d.drawLine(oldX, oldY, posX, posY);
 			return;
 		}
 		case 3: {
@@ -61,6 +63,8 @@ public class DrawObject extends Canvas implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		amountOfClicks++;
+		oldX = posX;
+		oldY = posY;
 		posX = e.getX();
 		posY = e.getY();
 		paint(getGraphics());
