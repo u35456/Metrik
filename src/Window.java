@@ -1,17 +1,25 @@
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class Window extends Frame implements WindowListener {
 	
+	public static DrawObject drawObject = new DrawObject();
+	
 	public Window() {
-		setTitle("Metrik v1.0");
+		setTitle("Metrik v1.1.0");
         setSize(500,300);
         setVisible(true);
         addWindowListener(this);
-        add(new DrawObject());
+        add(drawObject);
+        setMenuBar(new MainMenuBar());
 	}
 
+	public static void setBackgroundColor(Color c) {
+		drawObject.setBackground(c);
+	}
+	
 	@Override
 	public void windowActivated(WindowEvent arg0) {
 		

@@ -3,9 +3,11 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.TextField;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
+import java.io.StringWriter;
 
 public class DrawObject extends Canvas implements MouseListener {
 	
@@ -14,7 +16,7 @@ public class DrawObject extends Canvas implements MouseListener {
 	
 	public DrawObject() {
 		setSize(500, 500);
-		setBackground(Color.blue);
+		setBackground(Color.white);
 		addMouseListener(this);
 	}
 
@@ -32,6 +34,8 @@ public class DrawObject extends Canvas implements MouseListener {
 							posX-25, posY-25,
 							50, 50);
 		g2d.draw(ellipse);
+		
+		//g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
 	}
 	
 	@Override
