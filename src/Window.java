@@ -9,7 +9,7 @@ public class Window extends Frame implements WindowListener {
 	public static DialogueWindow diaWindow;
 	
 	public Window() {
-		setTitle("Metrik v1.2");
+		setTitle("Metrik v1.2.1");
         setSize(500,300);
         setVisible(true);
         addWindowListener(this);

@@ -12,8 +12,10 @@ import java.io.StringWriter;
 public class DrawObject extends Canvas implements MouseListener {
 	
 	private int posX, posY = 0;
+	private int oldX, oldY = 0;
 	private int amountOfClicks = 0;
 	private static int radius = 50;
+	private double distance = 0F;
 	
 	public DrawObject() {
 		setSize(500, 500);
@@ -23,20 +25,37 @@ public class DrawObject extends Canvas implements MouseListener {
 
 	@Override
 	public void paint(Graphics g) {
-		if (amountOfClicks == 0) return;
-		if (amountOfClicks >= 3) {
+		Graphics2D g2d = (Graphics2D) g;
+		switch (amountOfClicks) {
+		case 0: {
+			return;
+		}
+		case 1: {
+			g2d.setStroke(new BasicStroke(2.5F));
+			Ellipse2D ellipse = new Ellipse2D.Float(
+								posX-25, posY-25,
+								50, 50);
+			g2d.draw(ellipse);
+			g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
+			return;
+		}
+		case 2: {
+			g2d.setStroke(new BasicStroke(2.5F));
+			Ellipse2D ellipse = new Ellipse2D.Float(
+								posX-25, posY-25,
+								50, 50);
+			g2d.draw(ellipse);
+			
+			g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
+			distance = Math.sqrt(Math.pow(oldX - posX, 2) + Math.pow(oldY - posY, 2));
+			g2d.drawString("d = " + distance, (posX + oldX) / 2, (posY + oldY)/2);
+			return;
+		}
+		case 3: {
 			amountOfClicks = 0;
 			repaint();
 			return;
-		}
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setStroke(new BasicStroke(2.5F));
-		Ellipse2D ellipse = new Ellipse2D.Float(
-							posX-25, posY-25,
-							50, 50);
-		g2d.draw(ellipse);
-		
-		g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
+		}}
 	}
 	
 	@Override
