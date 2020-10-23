@@ -6,9 +6,10 @@ import java.awt.event.WindowListener;
 public class Window extends Frame implements WindowListener {
 	
 	public static DrawObject drawObject = new DrawObject();
+	public static DialogueWindow diaWindow;
 	
 	public Window() {
-		setTitle("Metrik v1.1.0");
+		setTitle("Metrik v1.2");
         setSize(500,300);
         setVisible(true);
         addWindowListener(this);

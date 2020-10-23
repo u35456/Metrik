@@ -13,6 +13,7 @@ public class DrawObject extends Canvas implements MouseListener {
 	
 	private int posX, posY = 0;
 	private int amountOfClicks = 0;
+	private static int radius = 50;
 	
 	public DrawObject() {
 		setSize(500, 500);
@@ -35,7 +36,7 @@ public class DrawObject extends Canvas implements MouseListener {
 							50, 50);
 		g2d.draw(ellipse);
 		
-		//g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
+		g2d.drawString("" + posX + " " + posY, posX - 30, posY - 30);
 	}
 	
 	@Override
@@ -64,5 +65,13 @@ public class DrawObject extends Canvas implements MouseListener {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		
+	}
+	
+	public static void setRadius(int r) {
+		radius = r;
+	}
+	
+	public static int getRadius() {
+		return radius;
 	}
 }

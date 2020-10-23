@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 
 public class MainMenuBar extends MenuBar implements ActionListener {
 	
-	private Menu menu;
+	private Menu menu1;
+	private Menu menu2;
 	private MenuItem[] buttons = new MenuItem[4];
+	private MenuItem kreisButton = new MenuItem("Radius");
 	
 	public MainMenuBar() {
-		menu = new Menu("Hintergrundfarbe");
+		menu1 = new Menu("Hintergrundfarbe");
 		
 		buttons[0] = new MenuItem("Farbe: white");
 		buttons[1] = new MenuItem("Farbe: blau");
@@ -20,15 +22,26 @@ public class MainMenuBar extends MenuBar implements ActionListener {
 		
 		for(int i = 0; i < 4; i++) {
 			buttons[i].addActionListener(this);
-			menu.add(buttons[i]);
+			menu1.add(buttons[i]);
 		}
         
-		add(menu);
+		add(menu1);
+		
+		menu2 = new Menu("Kreis");
+		menu2.add(kreisButton);
+		kreisButton.addActionListener(this);
+		add(menu2);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
+		
+		if(source == kreisButton) {
+			Window.diaWindow = new DialogueWindow();
+			return;
+		}
+		
 		if (source == buttons[0]) {
 			Window.setBackgroundColor(Color.white);
 		} else if (source == buttons[1]) {
